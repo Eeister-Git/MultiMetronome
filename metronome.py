@@ -2,6 +2,7 @@ import time
 
 metronome = []
 measures = int(input("How many different measures are needed? "))
+piece = []
 
 for measure in range(0,measures):
     tempo = int(input("What is the tempo? "))
@@ -17,9 +18,33 @@ n = 3
 
 metronome = [metronome[i * n:(i + 1) * n] for i in range((len(metronome) + n -1) // n)]
 
+pieces = int(input("how many measures are in this piece? "))
+
+for x in range(0,pieces):
+    piece.append(" ")
+
+print(metronome)
+print(piece)
+
+counter = 0
+for types in range(0,len(metronome)):
+    a = metronome[counter]
+    print(a)
+    counter += 1
+    while True:
+        numbering = input("Which measure has this tempo, bpm, and note value? ")
+        piece[int(numbering) - 1] = a
+        print(piece)
+        doing = (input("Are there more(Y for yes and N for no)? "))
+        if doing == "Y":
+                   print(doing)
+                   continue
+        if doing == "N":
+            print(doing)
+            break
 
 while True:
-    for data in metronome:
+    for data in piece:
         def sound(notevalue, bpm, tempo):
             if notevalue == 16:
                 counter = bpm - 1
